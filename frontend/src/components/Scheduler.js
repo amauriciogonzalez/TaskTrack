@@ -1,45 +1,28 @@
 import React from "react";
-import {Inject, ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, EventSettingsModel, Schedule, ResourceDirective, ResourcesDirective, ViewsDirective, ViewDirective} from '@syncfusion/ej2-react-schedule'
-import {DataManager, WebApiAdaptor, ODataV4Adaptor} from '@syncfusion/ej2-data'
+import {Inject, ScheduleComponent, Day, Week, Month, Agenda, ResourceDirective, ResourcesDirective, ViewsDirective, ViewDirective} from '@syncfusion/ej2-react-schedule'
+//import {DataManager, WebApiAdaptor, UrlAdaptor } from '@syncfusion/ej2-data'
 import { useNavigate } from "react-router-dom";
 
 function Scheduler(props)
 {
-    let remoteData = new DataManager({
-        url: 'https://services.syncfusion.com/js/production/api/schedule',
-        adaptor: new WebApiAdaptor,
-        crossDomain: true
-    });
-
-    let localData = new DataManager()
-
     const navigate = useNavigate()
-
-    /*
-    const fieldsData = {
-        id: 'Id',
-        subject: { name: 'Subject', title: 'Event Name' },
-        location: { name: 'Location', title: 'Event Location' },
-        description: { name: 'Description', title: 'Event Description' },
-        startTime: { name: 'StartTime', title: 'Start Duration' },
-        endTime: { name: 'EndTime', title: 'End Duration' }
-    }
-    */
 
     const [dataManager, setDataManager] = React.useState(null)
 
+    /*
     React.useEffect(() => {
         const fetchData = async () => {
         const manager = new DataManager({
             url: 'http://127.0.0.1:8000/api/events',
             //url: 'https://ej2services.syncfusion.com/production/web-services/api/Schedule',
-            adaptor: new ODataV4Adaptor()
+            adaptor: new UrlAdaptor()
         });
         await manager.ready;
         setDataManager(manager);
         };
         fetchData();
     }, []);
+    */
 
     const eventSettings = {
         dataSource: dataManager,
@@ -51,13 +34,10 @@ function Scheduler(props)
             IsAllDay: true,
         }]
         */
-        //fields: fieldsData,
     }
 
-    console.log(eventSettings.dataSource)
-
-
-
+    /* Below, we use the ej2 Syncfusion schedule component. The ResourceDirective subcomponent below allows for the recognition of created subjects.
+       The ViewsDirective component allows the user to view the calendar differently by selecting a certain day, week, or month, in addition to an agenda view. */
 
     return(
         <div>

@@ -55,13 +55,12 @@ code {
 {
     background-color: #333232;
     padding: 11px;
-
 }
 
 .button-to-scheduler
 {
     cursor: pointer;
-    margin-left: 70px;
+    margin-right: 70px;
 }
 
 .button-to-scheduler:hover
@@ -81,13 +80,27 @@ code {
     background-color: #414040;
 }
 
+.subjects
+{
+    text-align: center;
+}
+
+.subject-list
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .subject-card
 {
-    background-color: #333232;
+    margin: 15px 20%;
+    /*background-color: #333232;*/
+    background-color: rgb(175, 175, 175);
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    margin: 30px 35%;
+    width: 900px;
     border-radius: 100px;
     border-color: #bbb;
     border-style: solid;
@@ -106,11 +119,75 @@ code {
     
 }
 
-.dot
+.dot, .color-selection-dot
 {
     height: 50px;
     width: 50px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
+    transition-duration: 0.2s;
+}
+
+.edit-subject
+{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.edit-subject-title
+{
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.subject-title-form
+{
+    background-color: #333232;
+    width: 900px;
+    font-size: 35px;
+    padding: 15px 0px;
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.color-selection
+{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.confirm-delete
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px 20px;
+}
+
+.confirm-button, .delete-button
+{
+    background-color: #333232;
+    padding: 11px;
+    margin: 0px 20px
+}
+
+.confirm-button:hover, .delete-button:hover, .subject-information:hover
+{
+    background-color: #414040;
+    cursor: pointer;
+}
+
+.color-selection-dot
+{
+    margin: 10px 10px;
 }

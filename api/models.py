@@ -12,3 +12,7 @@ class Event(models.Model):
 
     def __str__(self):
         return self.Subject
+
+class Subject(models.Model):
+    Name = models.CharField(max_length=200, default='Name')
+    Color = models.CharField(max_length=7, default='#000000')

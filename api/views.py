@@ -3,8 +3,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, parser_classes, renderer_classes
 from rest_framework.parsers import JSONParser, MultiPartParser
-from .serializers import EventSerializer
-from .models import Event
+from .serializers import EventSerializer, SubjectSerializer
+from .models import Event, Subject
 
 # Create your views here.
 
@@ -19,6 +19,18 @@ def getRoutes(request):
         {
             'Endpoint': '/events/$batch',
         },
+        {
+            'Endpoint': '/subjects/',
+        },
+        {
+            'Endpoint': '/subjects/create/'
+        },
+        {
+            'Endpoint': '/subjects/id/update/'
+        },
+        {
+            'Endpoint': '/subjects/id/delete/'
+        },
     ]
     return Response(routes)
 
@@ -28,17 +40,46 @@ def getEventList(request):
     serializer = EventSerializer(events, many=True)
     return Response(serializer.data)
 
-@api_view(['POST'])  # Specify the HTTP methods allowed for this view
+@api_view(['POST']) 
 def handleBatchRequest(request):
-    data = request.data  # Get the request data
-    # Process each operation in the batch request
+    data = request.data
     responses = []
     for operation in data:
         pass
-        # Handle each operation individually
 
-        # Perform necessary validations, data manipulation, and database operations
+    return Response(responses)
 
-        # Append the response for each operation to the `responses` list
 
-    return Response(responses)  # Return the responses for each operation
+@api_view(['GET'])
+def getSubjects(request):
+    subjects = Subject.objects.all()
+    serializer = SubjectSerializer(subjects, many=True)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def createSubject(request):
+    data = request.data
+    subject = Subject.objects.create(
+        Color=data['Color'],
+        Name=data['Name']
+    )
+    serializer = SubjectSerializer(subject, many=False)
+    return Response(serializer.data)
+
+@api_view(['PUT'])
+def updateSubject(request, pk):
+    data = request.data
+    subject = Subject.objects.get(id=pk)
+    serializer = SubjectSerializer(instance=subject, data=data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def deleteSubject(request, pk):
+    subject = Subject.objects.get(id=pk)
+    subject.delete()
+    return Response('Subject was deleted.')
+    
