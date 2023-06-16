@@ -139,6 +139,7 @@ code {
 
 .edit-subject-title
 {
+    margin-top: 90px;
     font-size: 40px;
     font-weight: 600;
     letter-spacing: 0.3px;
@@ -152,7 +153,7 @@ code {
     padding: 15px 0px;
     color: white;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 170px;
 }
 
 .color-selection
@@ -164,6 +165,7 @@ code {
     justify-content: center;
     justify-items: center;
     align-items: center;
+    width: 900px;
 }
 
 .confirm-delete
