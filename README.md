@@ -1,7 +1,7 @@
 # TaskTrack
 TaskTrack is a task scheduling application that helps users organize and manage their tasks effectively. The website provides a user-friendly interface where users can view their tasks on a calendar, allowing them to easily track their schedules. The calendar can be viewed in different modes, such as day, week, month, or agenda, providing flexibility in how users prefer to visualize their tasks.
 
-In addition to scheduling tasks, TaskTrack allows users to create subjects for each task. Subjects provide a way to categorize and label tasks based on different topics, projects, or areas of focus. By assigning subjects to tasks, users can easily filter and sort their tasks based on specific subjects, enabling better organization and quick access to related tasks.
+In addition to scheduling tasks, TaskTrack allows users to create subjects for each task. Subjects provide a way to categorize and label tasks based on different topics, projects, or areas of focus.
 
 TaskTrack aims to enhance task management by offering a comprehensive solution that combines scheduling capabilities with subject-based categorization. With an intuitive interface and customizable views, users can effectively plan and track their tasks, improving productivity and ensuring important deadlines are met.
 
